@@ -9,13 +9,15 @@ import com.example.core.service.MemberService;
 import com.example.core.service.MemberServiceImpl;
 import com.example.core.service.OrderService;
 import com.example.core.service.OrderServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class OrderApp {
     public static void main(String[] args) {
-        AppConfig app = new AppConfig();
+        ApplicationContext app = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        MemberService memberService = app.memberService();
-        OrderService orderService = app.orderService();
+        MemberService memberService = app.getBean("memberService", MemberService.class);
+        OrderService orderService = app.getBean("orderService", OrderService.class);
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
