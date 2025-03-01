@@ -10,6 +10,7 @@ import com.example.core.service.MemberService;
 import com.example.core.service.MemberServiceImpl;
 import com.example.core.service.OrderService;
 import com.example.core.service.OrderServiceImpl;
+import org.springframework.boot.context.properties.bind.Name;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
